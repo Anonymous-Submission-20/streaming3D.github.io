@@ -67,8 +67,22 @@ function createModelPanel(item, label, source, poster) {
   });
   const placeholder = createElement("div", {
     className: "viewer-placeholder",
-    text: "3D model loads when visible",
+    attributes: { "aria-live": "polite" },
   });
+  const loadingStatus = createElement("div", { className: "viewer-loading-status" });
+  const loadingLabel = createElement("span", {
+    className: "viewer-loading-label",
+    text: "Preparing 3D model",
+  });
+  const loadingValue = createElement("span", {
+    className: "viewer-loading-value",
+    text: "0%",
+  });
+  const loadingTrack = createElement("span", { className: "viewer-loading-track" });
+  const loadingFill = createElement("span", { className: "viewer-loading-fill" });
+  loadingTrack.append(loadingFill);
+  loadingStatus.append(loadingLabel, loadingValue, loadingTrack);
+  placeholder.append(loadingStatus);
   shell.append(placeholder);
   panel.append(shell);
 
@@ -79,6 +93,10 @@ function createModelPanel(item, label, source, poster) {
     label,
     item,
     viewer: null,
+    placeholder,
+    loadingLabel,
+    loadingValue,
+    loadingFill,
   };
   pendingViewers.set(shell, descriptor);
   if (viewerObserver) viewerObserver.observe(shell);
@@ -93,6 +111,8 @@ async function activateViewer(shell) {
   try {
     await customElements.whenDefined("model-viewer");
     if (!shell.isConnected) return;
+    shell.classList.add("is-loading");
+    descriptor.loadingLabel.textContent = "Loading 3D model";
 
     const viewer = createElement("model-viewer", {
       attributes: {
@@ -123,18 +143,28 @@ async function activateViewer(shell) {
 
     viewer.addEventListener("progress", (event) => {
       const value = Number(event.detail?.totalProgress);
-      if (Number.isFinite(value)) progressFill.style.width = `${Math.round(value * 100)}%`;
+      if (!Number.isFinite(value)) return;
+      const percentage = Math.round(value * 100);
+      progressFill.style.width = `${percentage}%`;
+      descriptor.loadingFill.style.width = `${percentage}%`;
+      descriptor.loadingValue.textContent = `${percentage}%`;
     });
     viewer.addEventListener("load", () => {
       descriptor.viewer = viewer;
       viewer.dataset.loadState = "loaded";
+      descriptor.loadingFill.style.width = "100%";
+      descriptor.loadingValue.textContent = "100%";
+      descriptor.loadingLabel.textContent = "Ready";
+      shell.classList.remove("is-loading");
       shell.classList.add("is-loaded");
       shell.setAttribute("aria-busy", "false");
       progress.remove();
+      window.setTimeout(() => descriptor.placeholder.remove(), 360);
       alignRowCameras(shell.closest(".result-row"));
     });
     viewer.addEventListener("error", () => {
       shell.setAttribute("aria-busy", "false");
+      shell.classList.remove("is-loading");
       placeholder.className = "viewer-error";
       placeholder.textContent = "This 3D model could not be loaded.";
     });

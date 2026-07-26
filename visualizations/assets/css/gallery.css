@@ -227,16 +227,81 @@ h1 {
   display: grid;
   place-items: center;
   padding: 24px;
-  color: var(--muted);
-  font-size: 13px;
-  text-align: center;
   pointer-events: none;
 }
 
-.viewer-shell.is-loaded .viewer-placeholder { display: none; }
+.viewer-placeholder {
+  z-index: 3;
+  color: #4f5965;
+  background: rgb(240 243 247 / 78%);
+  -webkit-backdrop-filter: blur(18px) saturate(0.8);
+  backdrop-filter: blur(18px) saturate(0.8);
+  transition:
+    opacity 300ms ease,
+    visibility 300ms ease,
+    backdrop-filter 300ms ease;
+}
+
+.viewer-loading-status {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 9px 18px;
+  width: min(210px, 78%);
+  align-items: center;
+}
+
+.viewer-loading-label,
+.viewer-loading-value {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.viewer-loading-label {
+  color: #404a55;
+}
+
+.viewer-loading-value {
+  color: #737d88;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.viewer-loading-track {
+  grid-column: 1 / -1;
+  display: block;
+  height: 2px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: rgb(113 126 140 / 20%);
+}
+
+.viewer-loading-fill {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: var(--accent);
+  transition: width 120ms linear;
+}
+
+.viewer-shell.is-loading .viewer-loading-label {
+  animation: loading-label-pulse 1.8s ease-in-out infinite;
+}
+
+.viewer-shell.is-loaded .viewer-placeholder {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-backdrop-filter: blur(0);
+  backdrop-filter: blur(0);
+}
 
 .viewer-error {
+  z-index: 4;
   color: #8a3b3b;
+  font-size: 13px;
+  text-align: center;
+  background: var(--viewer-bg);
   pointer-events: auto;
 }
 
@@ -257,6 +322,12 @@ h1 {
   height: 100%;
   background: var(--accent);
   transition: width 120ms linear;
+}
+
+@keyframes loading-label-pulse {
+  0%,
+  100% { opacity: 0.58; }
+  50% { opacity: 1; }
 }
 
 .stream-shell {
@@ -370,6 +441,26 @@ footer a { font-weight: 600; }
   .viewer-shell,
   .stream-shell { aspect-ratio: 4 / 3; }
   footer { flex-direction: column; gap: 6px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .viewer-placeholder,
+  .viewer-loading-fill,
+  .viewer-progress span {
+    transition: none;
+  }
+
+  .viewer-shell.is-loading .viewer-loading-label {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .viewer-placeholder {
+    background: #f0f3f7;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
