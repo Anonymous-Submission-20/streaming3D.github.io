@@ -1,0 +1,459 @@
+{
+  "results": [
+    {
+      "id": "mario",
+      "title": "Mario figure",
+      "dataset": "GSO",
+      "description": "Ground-truth comparison on a recognizable object with articulated limbs and high-frequency color boundaries.",
+      "thumbnail": "./assets/media/thumbnails/mario.webp",
+      "totalFrames": 100,
+      "framePositions": [
+        1,
+        10,
+        19,
+        28,
+        37,
+        46,
+        55,
+        64,
+        73,
+        82,
+        91,
+        100
+      ],
+      "leftType": "model",
+      "leftLabel": "Ground truth",
+      "rightLabel": "Stream3D",
+      "frames": [
+        "./assets/media/frames/mario/frame-00.webp",
+        "./assets/media/frames/mario/frame-01.webp",
+        "./assets/media/frames/mario/frame-02.webp",
+        "./assets/media/frames/mario/frame-03.webp",
+        "./assets/media/frames/mario/frame-04.webp",
+        "./assets/media/frames/mario/frame-05.webp",
+        "./assets/media/frames/mario/frame-06.webp",
+        "./assets/media/frames/mario/frame-07.webp",
+        "./assets/media/frames/mario/frame-08.webp",
+        "./assets/media/frames/mario/frame-09.webp",
+        "./assets/media/frames/mario/frame-10.webp",
+        "./assets/media/frames/mario/frame-11.webp"
+      ],
+      "models": {
+        "sam3d": "./assets/media/models/mario/sam3d.glb",
+        "stream3d": "./assets/media/models/mario/stream3d.glb",
+        "gt": "./assets/media/models/mario/gt.glb?v=20260719-yaw-45"
+      }
+    },
+    {
+      "id": "spider-man",
+      "title": "Spider-Man figure",
+      "dataset": "GSO",
+      "description": "A recognizable articulated figure with a thin silhouette, distinct limbs, and high-frequency suit details.",
+      "thumbnail": "./assets/media/thumbnails/spider-man.webp",
+      "totalFrames": 64,
+      "framePositions": [
+        29
+      ],
+      "leftType": "model",
+      "leftLabel": "Ground truth",
+      "rightLabel": "Stream3D",
+      "cameraOrbit": "0deg 75deg auto",
+      "frames": [
+        "./assets/media/thumbnails/spider-man.webp"
+      ],
+      "models": {
+        "sam3d": "./assets/media/models/spider-man/sam3d.glb?v=20260726-canonical-01",
+        "stream3d": "./assets/media/models/spider-man/stream3d.glb?v=20260726-canonical-01",
+        "gt": "./assets/media/models/spider-man/gt.glb?v=20260726-canonical-01"
+      }
+    },
+    {
+      "id": "elephant",
+      "title": "Elephant plush",
+      "dataset": "GSO",
+      "thumbnail": "./assets/media/thumbnails/elephant.webp",
+      "totalFrames": 100,
+      "framePositions": [
+        1,
+        10,
+        19,
+        28,
+        37,
+        46,
+        55,
+        64,
+        73,
+        82,
+        91,
+        100
+      ],
+      "frames": [
+        "./assets/media/frames/elephant/frame-00.webp",
+        "./assets/media/frames/elephant/frame-01.webp",
+        "./assets/media/frames/elephant/frame-02.webp",
+        "./assets/media/frames/elephant/frame-03.webp",
+        "./assets/media/frames/elephant/frame-04.webp",
+        "./assets/media/frames/elephant/frame-05.webp",
+        "./assets/media/frames/elephant/frame-06.webp",
+        "./assets/media/frames/elephant/frame-07.webp",
+        "./assets/media/frames/elephant/frame-08.webp",
+        "./assets/media/frames/elephant/frame-09.webp",
+        "./assets/media/frames/elephant/frame-10.webp",
+        "./assets/media/frames/elephant/frame-11.webp"
+      ],
+      "models": {
+        "sam3d": "./assets/media/models/elephant/sam3d.glb",
+        "stream3d": "./assets/media/models/elephant/stream3d.glb",
+        "gt": "./assets/media/models/elephant/gt.glb?v=20260719-yaw-90"
+      },
+      "leftType": "model",
+      "leftLabel": "Ground truth",
+      "rightLabel": "Stream3D"
+    },
+    {
+      "id": "food-set",
+      "title": "Food & beverage set",
+      "dataset": "GSO",
+      "description": "A multi-object arrangement testing object count, relative layout, silhouette, and label-level texture detail.",
+      "thumbnail": "./assets/media/thumbnails/food-set.webp",
+      "totalFrames": 64,
+      "framePositions": [
+        29
+      ],
+      "leftType": "model",
+      "leftLabel": "Ground truth",
+      "rightLabel": "Stream3D",
+      "frames": [
+        "./assets/media/thumbnails/food-set.webp"
+      ],
+      "models": {
+        "sam3d": "./assets/media/models/food-set/sam3d.glb?v=20260726-canonical-01",
+        "stream3d": "./assets/media/models/food-set/stream3d.glb?v=20260726-canonical-01",
+        "gt": "./assets/media/models/food-set/gt.glb?v=20260726-canonical-01"
+      }
+    },
+    {
+      "id": "teapot",
+      "title": "Ceramic teapot",
+      "dataset": "GSO",
+      "thumbnail": "./assets/media/thumbnails/teapot.webp",
+      "totalFrames": 100,
+      "framePositions": [
+        1,
+        10,
+        19,
+        28,
+        37,
+        46,
+        55,
+        64,
+        73,
+        82,
+        91,
+        100
+      ],
+      "frames": [
+        "./assets/media/frames/teapot/frame-00.jpg",
+        "./assets/media/frames/teapot/frame-01.jpg",
+        "./assets/media/frames/teapot/frame-02.jpg",
+        "./assets/media/frames/teapot/frame-03.jpg",
+        "./assets/media/frames/teapot/frame-04.jpg",
+        "./assets/media/frames/teapot/frame-05.jpg",
+        "./assets/media/frames/teapot/frame-06.jpg",
+        "./assets/media/frames/teapot/frame-07.jpg",
+        "./assets/media/frames/teapot/frame-08.jpg",
+        "./assets/media/frames/teapot/frame-09.jpg",
+        "./assets/media/frames/teapot/frame-10.jpg",
+        "./assets/media/frames/teapot/frame-11.jpg"
+      ],
+      "models": {
+        "sam3d": "./assets/media/models/teapot/sam3d.glb",
+        "stream3d": "./assets/media/models/teapot/stream3d.glb",
+        "gt": "./assets/media/models/teapot/gt.glb?v=20260720-yaw-135-scale-07117"
+      },
+      "leftType": "model",
+      "leftLabel": "Ground truth",
+      "rightLabel": "Stream3D"
+    },
+    {
+      "id": "taxi-police-cars",
+      "title": "Taxi & police car set",
+      "dataset": "GSO",
+      "description": "A paired vehicle scene with repeated wheels, thin roof details, and two distinct appearances.",
+      "thumbnail": "./assets/media/thumbnails/taxi-police-cars.webp",
+      "totalFrames": 64,
+      "framePositions": [
+        29
+      ],
+      "leftType": "model",
+      "leftLabel": "Ground truth",
+      "rightLabel": "Stream3D",
+      "frames": [
+        "./assets/media/thumbnails/taxi-police-cars.webp"
+      ],
+      "models": {
+        "sam3d": "./assets/media/models/taxi-police-cars/sam3d.glb?v=20260726-root-y45-01",
+        "stream3d": "./assets/media/models/taxi-police-cars/stream3d.glb?v=20260726-root-y45-01",
+        "gt": "./assets/media/models/taxi-police-cars/gt.glb?v=20260726-original-8dea00e"
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "id": "seated-statue",
+      "title": "Seated stone statue",
+      "dataset": "DL3DV",
+      "description": "A long outdoor orbit around a carved seated figure, with fine surface relief, self-occlusion, and changing background context.",
+      "thumbnail": "./assets/media/thumbnails/seated-statue.webp",
+      "totalFrames": 272,
+      "framePositions": [
+        1,
+        24,
+        50,
+        74,
+        99,
+        123,
+        149,
+        173,
+        198,
+        222,
+        248,
+        272
+      ],
+      "leftLabel": "Input stream",
+      "rightLabel": "Stream3D",
+      "frames": [
+        "./assets/media/frames/seated-statue/frame-00.png",
+        "./assets/media/frames/seated-statue/frame-01.png",
+        "./assets/media/frames/seated-statue/frame-02.png",
+        "./assets/media/frames/seated-statue/frame-03.png",
+        "./assets/media/frames/seated-statue/frame-04.png",
+        "./assets/media/frames/seated-statue/frame-05.png",
+        "./assets/media/frames/seated-statue/frame-06.png",
+        "./assets/media/frames/seated-statue/frame-07.png",
+        "./assets/media/frames/seated-statue/frame-08.png",
+        "./assets/media/frames/seated-statue/frame-09.png",
+        "./assets/media/frames/seated-statue/frame-10.png",
+        "./assets/media/frames/seated-statue/frame-11.png"
+      ],
+      "models": {
+        "sam3d": "./assets/media/models/seated-statue/sam3d.glb",
+        "stream3d": "./assets/media/models/seated-statue/stream3d.glb"
+      },
+      "leftType": "stream"
+    },
+    {
+      "id": "vintage-car",
+      "title": "Vintage convertible",
+      "dataset": "DL3DV",
+      "description": "A long real-world orbit with reflective paint, thin wheel geometry, and repeated occlusion.",
+      "thumbnail": "./assets/media/thumbnails/vintage-car.webp",
+      "totalFrames": 344,
+      "framePositions": [
+        1,
+        31,
+        63,
+        93,
+        126,
+        156,
+        188,
+        218,
+        251,
+        281,
+        313,
+        344
+      ],
+      "leftType": "stream",
+      "leftLabel": "Input stream",
+      "rightLabel": "Stream3D",
+      "frames": [
+        "./assets/media/frames/vintage-car/frame-00.webp",
+        "./assets/media/frames/vintage-car/frame-01.webp",
+        "./assets/media/frames/vintage-car/frame-02.webp",
+        "./assets/media/frames/vintage-car/frame-03.webp",
+        "./assets/media/frames/vintage-car/frame-04.webp",
+        "./assets/media/frames/vintage-car/frame-05.webp",
+        "./assets/media/frames/vintage-car/frame-06.webp",
+        "./assets/media/frames/vintage-car/frame-07.webp",
+        "./assets/media/frames/vintage-car/frame-08.webp",
+        "./assets/media/frames/vintage-car/frame-09.webp",
+        "./assets/media/frames/vintage-car/frame-10.webp",
+        "./assets/media/frames/vintage-car/frame-11.webp"
+      ],
+      "models": {
+        "sam3d": "./assets/media/models/vintage-car/sam3d.glb",
+        "stream3d": "./assets/media/models/vintage-car/stream3d.glb"
+      }
+    },
+    {
+      "id": "pastel-castle",
+      "title": "Pastel castle ride",
+      "dataset": "DL3DV",
+      "description": "A compact 64-view sequence with fine towers, layered silhouettes, and saturated surface detail.",
+      "thumbnail": "./assets/media/thumbnails/pastel-castle.webp",
+      "totalFrames": 64,
+      "framePositions": [
+        1,
+        7,
+        12,
+        18,
+        24,
+        30,
+        35,
+        41,
+        47,
+        53,
+        58,
+        64
+      ],
+      "leftType": "stream",
+      "leftLabel": "Input stream",
+      "rightLabel": "Stream3D",
+      "frames": [
+        "./assets/media/frames/pastel-castle/frame-00.webp",
+        "./assets/media/frames/pastel-castle/frame-01.webp",
+        "./assets/media/frames/pastel-castle/frame-02.webp",
+        "./assets/media/frames/pastel-castle/frame-03.webp",
+        "./assets/media/frames/pastel-castle/frame-04.webp",
+        "./assets/media/frames/pastel-castle/frame-05.webp",
+        "./assets/media/frames/pastel-castle/frame-06.webp",
+        "./assets/media/frames/pastel-castle/frame-07.webp",
+        "./assets/media/frames/pastel-castle/frame-08.webp",
+        "./assets/media/frames/pastel-castle/frame-09.webp",
+        "./assets/media/frames/pastel-castle/frame-10.webp",
+        "./assets/media/frames/pastel-castle/frame-11.webp"
+      ],
+      "models": {
+        "sam3d": "./assets/media/models/pastel-castle/sam3d.glb",
+        "stream3d": "./assets/media/models/pastel-castle/stream3d.glb"
+      }
+    },
+    {
+      "id": "winged-statue",
+      "title": "Winged garden statue",
+      "dataset": "DL3DV",
+      "thumbnail": "./assets/media/thumbnails/winged-statue.webp",
+      "totalFrames": 346,
+      "framePositions": [
+        1,
+        32,
+        63,
+        95,
+        126,
+        157,
+        189,
+        220,
+        251,
+        283,
+        314,
+        346
+      ],
+      "frames": [
+        "./assets/media/frames/winged-statue/frame-00.jpg",
+        "./assets/media/frames/winged-statue/frame-01.jpg",
+        "./assets/media/frames/winged-statue/frame-02.jpg",
+        "./assets/media/frames/winged-statue/frame-03.jpg",
+        "./assets/media/frames/winged-statue/frame-04.jpg",
+        "./assets/media/frames/winged-statue/frame-05.jpg",
+        "./assets/media/frames/winged-statue/frame-06.jpg",
+        "./assets/media/frames/winged-statue/frame-07.jpg",
+        "./assets/media/frames/winged-statue/frame-08.jpg",
+        "./assets/media/frames/winged-statue/frame-09.jpg",
+        "./assets/media/frames/winged-statue/frame-10.jpg",
+        "./assets/media/frames/winged-statue/frame-11.jpg"
+      ],
+      "models": {
+        "sam3d": "./assets/media/models/winged-statue/sam3d.glb",
+        "stream3d": "./assets/media/models/winged-statue/stream3d.glb"
+      },
+      "leftType": "stream",
+      "leftLabel": "Input stream",
+      "rightLabel": "Stream3D"
+    },
+    {
+      "id": "cannon",
+      "title": "Antique field cannon",
+      "dataset": "DL3DV",
+      "description": "A 311-view outdoor orbit testing thin wheel spokes, long support rails, dark materials, and severe self-occlusion.",
+      "thumbnail": "./assets/media/thumbnails/cannon.webp",
+      "totalFrames": 311,
+      "framePositions": [
+        1,
+        29,
+        57,
+        85,
+        113,
+        141,
+        170,
+        198,
+        226,
+        254,
+        282,
+        311
+      ],
+      "leftType": "stream",
+      "leftLabel": "Input stream",
+      "rightLabel": "Stream3D",
+      "frames": [
+        "./assets/media/frames/cannon/frame-00.jpg",
+        "./assets/media/frames/cannon/frame-01.jpg",
+        "./assets/media/frames/cannon/frame-02.jpg",
+        "./assets/media/frames/cannon/frame-03.jpg",
+        "./assets/media/frames/cannon/frame-04.jpg",
+        "./assets/media/frames/cannon/frame-05.jpg",
+        "./assets/media/frames/cannon/frame-06.jpg",
+        "./assets/media/frames/cannon/frame-07.jpg",
+        "./assets/media/frames/cannon/frame-08.jpg",
+        "./assets/media/frames/cannon/frame-09.jpg",
+        "./assets/media/frames/cannon/frame-10.jpg",
+        "./assets/media/frames/cannon/frame-11.jpg"
+      ],
+      "models": {
+        "sam3d": "./assets/media/models/cannon/sam3d.glb",
+        "stream3d": "./assets/media/models/cannon/stream3d.glb"
+      }
+    },
+    {
+      "id": "tiger",
+      "title": "Tiger statue",
+      "dataset": "DL3DV",
+      "thumbnail": "./assets/media/thumbnails/tiger.webp",
+      "totalFrames": 307,
+      "framePositions": [
+        1,
+        27,
+        56,
+        83,
+        112,
+        139,
+        168,
+        195,
+        224,
+        251,
+        280,
+        307
+      ],
+      "frames": [
+        "./assets/media/frames/tiger/frame-00.webp",
+        "./assets/media/frames/tiger/frame-01.webp",
+        "./assets/media/frames/tiger/frame-02.webp",
+        "./assets/media/frames/tiger/frame-03.webp",
+        "./assets/media/frames/tiger/frame-04.webp",
+        "./assets/media/frames/tiger/frame-05.webp",
+        "./assets/media/frames/tiger/frame-06.webp",
+        "./assets/media/frames/tiger/frame-07.webp",
+        "./assets/media/frames/tiger/frame-08.webp",
+        "./assets/media/frames/tiger/frame-09.webp",
+        "./assets/media/frames/tiger/frame-10.webp",
+        "./assets/media/frames/tiger/frame-11.webp"
+      ],
+      "models": {
+        "sam3d": "./assets/media/models/tiger/sam3d.glb",
+        "stream3d": "./assets/media/models/tiger/stream3d.glb"
+      },
+      "leftType": "stream",
+      "leftLabel": "Input stream",
+      "rightLabel": "Stream3D"
+    }
+  ]
+}

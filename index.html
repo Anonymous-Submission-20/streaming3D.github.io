@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Streaming3D: Sequential 3D Generation via Evidential Memory</title>
 <meta name="description" content="Streaming3D: training-free streaming mechanism that turns a frozen view-conditioned 3D generator into a streaming generator with constant cross-chunk memory.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex-swap.min.css" integrity="sha384-ZLYhxmRv7L3uIzPeM2/QcB1VDGw0KWFqt0YK5lX+8+ju3nl/Dx+HV5dl06SUiJ6E" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.js" integrity="sha384-AtrdNsnxl/75rvBneBVH7DtOvCxSVahR2zWqle1coBKd8DEmLoviqNeJSx64gNAs" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/contrib/auto-render.min.js" integrity="sha384-bjyGPfbij8/NDKJhSGZNP/khQVgtHUE5exjm4Ydllo42FwIgYsdLO2lXGmRBf5Mz" crossorigin="anonymous" onload="renderMathInElement(document.body, {delimiters: [{left: '\\[', right: '\\]', display: true}, {left: '\\(', right: '\\)', display: false}], throwOnError: false});"></script>
 <style>
 :root {
   --fg: #1c1c1c;
@@ -45,6 +48,17 @@ h1 .sub { display: block; font-size: 22px; font-weight: 500; color: var(--muted)
 .btn:hover { background: #ebeef2; border-color: #ccd2da; }
 .btn-primary { background: var(--fg); color: var(--bg); border-color: var(--fg); }
 .btn-primary:hover { background: #2f3640; border-color: #2f3640; }
+.btn-external .external-arrow {
+  display: inline-block;
+  margin-left: 3px;
+  font-size: 0.92em;
+  transform: translateY(-1px);
+}
+.btn-disabled {
+  color: #8b939d;
+  cursor: default;
+}
+.btn-disabled:hover { background: var(--soft-bg); border-color: var(--border); }
 section { padding: 36px 0 12px; border-bottom: 1px solid var(--border); }
 section:last-of-type { border-bottom: none; }
 h2 { font-size: 24px; font-weight: 700; margin: 0 0 14px; }
@@ -84,6 +98,8 @@ pre {
   margin: 0 0 14px;
 }
 code { font-family: "SF Mono", Menlo, Consolas, monospace; }
+.katex { font-size: 1.04em; }
+.feature .katex, table .katex { font-size: 1em; }
 footer {
   text-align: center;
   padding: 36px 24px;
@@ -113,6 +129,8 @@ footer {
       <a class="btn" href="#method">Method</a>
       <a class="btn" href="#results">Results</a>
       <a class="btn" href="#bibtex">BibTeX</a>
+      <a class="btn btn-external btn-disabled" aria-disabled="true" title="Code link coming soon">Code <span class="external-arrow" aria-hidden="true">&#8599;</span></a>
+      <a class="btn btn-external" href="visualizations/" target="_blank" rel="noopener">More Visualization <span class="external-arrow" aria-hidden="true">&#8599;</span></a>
     </div>
   </div>
 </header>
@@ -176,7 +194,7 @@ footer {
         A lightweight warmup pass extracts token-wise evidence scores from the
         generator's cross-attention. These scores vote for informative frames
         and update the <strong>Adaptive Evidential Memory</strong>. The
-        top-<em>K</em> informative frames are then passed to the frozen 3D
+        top-\(K\) informative frames are then passed to the frozen 3D
         generator for evidence-based multi-view generation. By retaining only
         compact evidential memory rather than latent states, Streaming3D
         achieves stable long-horizon generation with a constant memory
@@ -199,7 +217,7 @@ footer {
         <div class="label">1. Evidence Score</div>
         <div class="body">
           A lightweight attention probe over a one-step warmup pass with a
-          frozen prior <code>z<sub>0</sub></code> measures the per-token
+          frozen prior \(z_0\) measures the per-token
           significance of each incoming view, combining attention magnitude
           with selectivity (1&nbsp;&minus;&nbsp;normalized entropy). The
           frozen prior makes scores comparable across chunks.
@@ -208,12 +226,12 @@ footer {
       <div class="feature">
         <div class="label">2. Adaptive Evidential Memory</div>
         <div class="body">
-          Two matrices <code>M, F &isin; ℝ<sup>Q&times;D</sup></code> persistently
-          track each query token's top-<em>D</em> evidence scores and the
+          Two matrices \(\mathbf{M}, \mathbf{F} \in \mathbb{R}^{Q \times D}\) persistently
+          track each query token's top-\(D\) evidence scores and the
           corresponding global frame indices. Frames that never enter any
           token's list are discarded immediately. The total footprint is
-          <code>2 &times; Q &times; D</code> scalars — about 50&nbsp;KB for
-          SAM&nbsp;3D (<em>Q</em>=4096, <em>D</em>=4),
+          \(2 \times Q \times D\) scalars — about 50&nbsp;KB for
+          SAM&nbsp;3D (\(Q=4096\), \(D=4\)),
           <strong>independent of stream length</strong>.
         </div>
       </div>
@@ -221,7 +239,7 @@ footer {
         <div class="label">3. Evidence-Based Multi-Generation</div>
         <div class="body">
           At each chunk, token-level preferences are aggregated into per-frame
-          ownership counts; the top-<em>K</em> frames form a bounded
+          ownership counts; the top-\(K\) frames form a bounded
           conditioning bundle. The frozen generator runs on this bundle via
           confidence-weighted Multi-Diffusion-style fusion in 3D latent space,
           where each query token's velocity is averaged across views weighted
@@ -267,8 +285,8 @@ footer {
       changes, partial observations, and accumulated occlusions. Experiments
       run on a single NVIDIA H100 GPU with SAM&nbsp;3D as the underlying
       generation backbone. Camera poses and depth for the initial input are
-      estimated by Depth&nbsp;Anything&nbsp;3. We set <em>K</em>=8 and
-      <em>D</em>=1 by default for efficiency, and evaluate streams of
+      estimated by Depth&nbsp;Anything&nbsp;3. We set \(K=8\) and
+      \(D=1\) by default for efficiency, and evaluate streams of
       length&nbsp;100.
     </p>
 
@@ -277,7 +295,7 @@ footer {
       <li><strong>Single-view:</strong> SAM&nbsp;3D, TRELLIS, TRELLIS.2.</li>
       <li><strong>Multi-view:</strong> EscherNet, TRELLIS+M.D., TRELLIS.2+M.D.</li>
       <li><strong>Streaming / latent-transport:</strong> KV-Cache reuse, FlowEdit, MV-SAM3D.</li>
-      <li><strong>Naive aggregation:</strong> Multi-Diffusion with <em>K</em> random views, <em>K</em> farthest-point-sampled views.</li>
+      <li><strong>Naive aggregation:</strong> Multi-Diffusion with \(K\) random views, \(K\) farthest-point-sampled views.</li>
     </ul>
 
     <h3>Metrics</h3>
@@ -386,7 +404,7 @@ footer {
       </thead>
       <tbody>
         <tr><td class="lab" rowspan="5">GSO</td>
-            <td class="lab">MV-SAM3D, K random views</td>
+            <td class="lab">MV-SAM3D, \(K\) random views</td>
             <td>14.828</td><td>0.859</td><td>0.156</td><td>83.039</td>
             <td>68.534</td><td>0.064</td><td>0.676</td></tr>
         <tr><td class="lab">SAM3D + FlowEdit</td>
@@ -398,7 +416,7 @@ footer {
         <tr><td class="lab">MV-SAM3D + Last Chunk</td>
             <td>13.906</td><td>0.848</td><td>0.184</td><td>104.228</td>
             <td>86.044</td><td>0.113</td><td>0.630</td></tr>
-        <tr class="best"><td class="lab">Streaming3D (Ours, K=8)</td>
+        <tr class="best"><td class="lab">Streaming3D (Ours, \(K=8\))</td>
             <td>15.791</td><td>0.864</td><td>0.145</td><td>76.001</td>
             <td>50.472</td><td>0.074</td><td>0.753</td></tr>
       </tbody>
@@ -411,17 +429,17 @@ footer {
         <span class="figcaption-strong">Qualitative results of ablation studies.</span>
         FlowEdit denotes SAM3D with FlowEdit; KV-Cache denotes SAM3D with
         KV-cache reuse. MV-SAM3D denotes MV-SAM3D applied to the last input
-        chunk, while MV-SAM3D(R) denotes MV-SAM3D with <em>K</em> randomly
+        chunk, while MV-SAM3D(R) denotes MV-SAM3D with \(K\) randomly
         selected views.
       </figcaption>
     </figure>
 
-    <h2 style="margin-top:30px;">Ablation: Conditioning Chunk Size <em>K</em></h2>
+    <h2 style="margin-top:30px;">Ablation: Conditioning Chunk Size \(K\)</h2>
     <p>
-      Increasing <em>K</em> generally provides more visual evidence, but the
-      gains are not strictly monotonic. We use <em>K</em>=8 as the default,
-      balancing reconstruction quality and streaming cost; <em>K</em>=16 gives
-      the strongest overall appearance, while <em>K</em>=12 yields the best
+      Increasing \(K\) generally provides more visual evidence, but the
+      gains are not strictly monotonic. We use \(K=8\) as the default,
+      balancing reconstruction quality and streaming cost; \(K=16\) gives
+      the strongest overall appearance, while \(K=12\) yields the best
       geometric alignment.
     </p>
     <div class="table-wrap">
@@ -440,16 +458,16 @@ footer {
       </thead>
       <tbody>
         <tr><td class="lab" rowspan="4">GSO</td>
-            <td class="lab">K = 4</td>
+            <td class="lab">\(K=4\)</td>
             <td>15.724</td><td>0.861</td><td>0.148</td><td>77.544</td>
             <td>47.516</td><td>0.064</td><td>0.754</td></tr>
-        <tr><td class="lab">K = 8 (default)</td>
+        <tr><td class="lab">\(K=8\) (default)</td>
             <td>15.791</td><td>0.864</td><td>0.145</td><td>76.001</td>
             <td>50.472</td><td>0.074</td><td>0.753</td></tr>
-        <tr><td class="lab">K = 12</td>
+        <tr><td class="lab">\(K=12\)</td>
             <td>15.663</td><td>0.860</td><td>0.150</td><td>75.547</td>
             <td>44.682</td><td>0.060</td><td>0.754</td></tr>
-        <tr><td class="lab">K = 16</td>
+        <tr><td class="lab">\(K=16\)</td>
             <td>15.912</td><td>0.864</td><td>0.144</td><td>71.449</td>
             <td>45.251</td><td>0.064</td><td>0.764</td></tr>
       </tbody>

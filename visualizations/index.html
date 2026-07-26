@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Streaming3D: More Visualizations</title>
+  <meta name="description" content="Additional anonymous interactive 3D results for Streaming3D.">
+  <link rel="stylesheet" href="./assets/css/gallery.css?v=20260726-04">
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js"></script>
+  <script type="module" src="./assets/js/gallery.js?v=20260726-03"></script>
+</head>
+<body>
+  <header class="page-header">
+    <div class="container">
+      <a class="back-link" href="../" aria-label="Return to the Streaming3D project page">
+        <span aria-hidden="true">&larr;</span> Project page
+      </a>
+      <p class="eyebrow">Streaming3D</p>
+      <h1>More Visualizations</h1>
+      <p class="lede">
+        Interactive 3D comparisons across object-centric and long-stream scenes.
+        Drag any model to orbit; views within each example stay synchronized.
+      </p>
+      <nav class="section-links" aria-label="Visualization sections">
+        <a href="#object-results">Object results</a>
+        <a href="#stream-results">Streaming comparisons</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="gallery-section" id="object-results">
+      <div class="container wide">
+        <div class="section-heading">
+          <div>
+            <p class="section-index">01</p>
+            <h2>Interactive object results</h2>
+          </div>
+          <p>
+            Ground-truth geometry provides a direct reference for shape,
+            appearance, and spatial arrangement.
+          </p>
+        </div>
+        <div class="result-list" id="object-result-list" aria-live="polite">
+          <p class="load-message">Loading object results...</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery-section gallery-section-alt" id="stream-results">
+      <div class="container wide">
+        <div class="section-heading">
+          <div>
+            <p class="section-index">02</p>
+            <h2>Side-by-side streaming comparison</h2>
+          </div>
+          <p>
+            Long monocular streams reveal how accumulated evidence improves
+            reconstruction over a single-view generation baseline.
+          </p>
+        </div>
+        <div class="result-list" id="stream-result-list" aria-live="polite">
+          <p class="load-message">Loading streaming comparisons...</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Anonymous submission. Additional qualitative results.</p>
+    <a href="../">Return to project page</a>
+  </footer>
+</body>
+</html>
