@@ -45,26 +45,31 @@
       }
     },
     {
-      "id": "spider-man",
-      "title": "Spider-Man figure",
-      "dataset": "GSO",
-      "description": "A recognizable articulated figure with a thin silhouette, distinct limbs, and high-frequency suit details.",
-      "thumbnail": "./assets/media/thumbnails/spider-man.webp",
-      "totalFrames": 64,
+      "id": "train",
+      "title": "Wooden toy train",
+      "dataset": "GSO30",
+      "description": "A colorful multi-part toy with repeated wheels, cylindrical stacks, and a thin pull cord.",
+      "thumbnail": "./assets/media/thumbnails/train.png",
+      "totalFrames": 100,
       "framePositions": [
-        29
+        1
       ],
       "leftType": "model",
       "leftLabel": "Ground truth",
       "rightLabel": "Stream3D",
       "cameraOrbit": "0deg 75deg auto",
+      "cameraDistanceScale": {
+        "Ground truth": 1,
+        "SAM3D": 0.92,
+        "Streaming3D": 1.25
+      },
       "frames": [
-        "./assets/media/thumbnails/spider-man.webp"
+        "./assets/media/thumbnails/train.png"
       ],
       "models": {
-        "sam3d": "./assets/media/models/spider-man/sam3d.glb?v=20260726-canonical-01",
-        "stream3d": "./assets/media/models/spider-man/stream3d.glb?v=20260726-canonical-01",
-        "gt": "./assets/media/models/spider-man/gt.glb?v=20260726-canonical-01"
+        "sam3d": "./assets/media/models/train/sam3d.glb?v=20260726-train-01",
+        "stream3d": "./assets/media/models/train/stream3d.glb?v=20260726-train-01",
+        "gt": "./assets/media/models/train/gt.glb?v=20260726-train-01"
       }
     },
     {

@@ -1,4 +1,4 @@
-const DATA_URL = "./assets/data/examples.json?v=20260726-01";
+const DATA_URL = "./assets/data/examples.json?v=20260726-04";
 const VIEWER_ROOT_MARGIN = "700px 0px";
 const FRAME_INTERVAL_MS = 900;
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -97,6 +97,7 @@ function createModelPanel(item, label, source, poster) {
     loadingLabel,
     loadingValue,
     loadingFill,
+    cameraDistanceScale: Number(item.cameraDistanceScale?.[label]) || 1,
   };
   pendingViewers.set(shell, descriptor);
   if (viewerObserver) viewerObserver.observe(shell);
@@ -152,6 +153,11 @@ async function activateViewer(shell) {
     viewer.addEventListener("load", () => {
       descriptor.viewer = viewer;
       viewer.dataset.loadState = "loaded";
+      const orbit = viewer.getCameraOrbit?.();
+      if (orbit && descriptor.cameraDistanceScale !== 1) {
+        viewer.cameraOrbit = `${orbit.theta}rad ${orbit.phi}rad ${orbit.radius * descriptor.cameraDistanceScale}m`;
+        viewer.jumpCameraToGoal?.();
+      }
       descriptor.loadingFill.style.width = "100%";
       descriptor.loadingValue.textContent = "100%";
       descriptor.loadingLabel.textContent = "Ready";
@@ -275,7 +281,10 @@ function copyCamera(source, target) {
 
   const orbit = source.getCameraOrbit();
   const targetPoint = source.getCameraTarget();
-  target.cameraOrbit = `${orbit.theta}rad ${orbit.phi}rad ${orbit.radius}m`;
+  const sourceRatio = Number(source.dataset.cameraSyncRatio) || 1;
+  const targetRatio = Number(target.dataset.cameraSyncRatio) || 1;
+  const targetRadius = orbit.radius * (targetRatio / sourceRatio);
+  target.cameraOrbit = `${orbit.theta}rad ${orbit.phi}rad ${targetRadius}m`;
   target.cameraTarget = `${targetPoint.x}m ${targetPoint.y}m ${targetPoint.z}m`;
   if (typeof source.getFieldOfView === "function") {
     target.fieldOfView = `${source.getFieldOfView()}deg`;
@@ -293,9 +302,14 @@ function alignRowCameras(row) {
   const initialOrbit = source.getCameraOrbit?.();
   if (initialOrbit) {
     viewers.slice(1).forEach((target) => {
-      target.cameraOrbit = `${initialOrbit.theta}rad ${initialOrbit.phi}rad auto`;
+      const targetOrbit = target.getCameraOrbit?.();
+      target.cameraOrbit = `${initialOrbit.theta}rad ${initialOrbit.phi}rad ${targetOrbit?.radius || "auto"}${targetOrbit ? "m" : ""}`;
       target.cameraTarget = "auto auto auto";
       target.jumpCameraToGoal?.();
+    });
+    viewers.forEach((viewer) => {
+      const orbit = viewer.getCameraOrbit?.();
+      viewer.dataset.cameraSyncRatio = String(orbit?.radius / initialOrbit.radius || 1);
     });
   }
 
