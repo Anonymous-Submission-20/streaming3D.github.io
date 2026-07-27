@@ -128,7 +128,6 @@ footer {
       <a class="btn" href="#teaser">Teaser</a>
       <a class="btn" href="#method">Method</a>
       <a class="btn" href="#results">Results</a>
-      <a class="btn" href="#bibtex">BibTeX</a>
       <a class="btn btn-external" href="https://github.com/Anonymous-Submission-20/stream3d" target="_blank" rel="noopener">Code <span class="external-arrow" aria-hidden="true">&#8599;</span></a>
       <a class="btn btn-external" href="visualizations/" target="_blank" rel="noopener">More Visualization <span class="external-arrow" aria-hidden="true">&#8599;</span></a>
     </div>
@@ -138,7 +137,7 @@ footer {
 <section id="teaser">
   <div class="container">
     <figure>
-      <img src="figures/fig1.png" alt="Streaming3D teaser: streaming 3D generation with constant memory">
+      <img src="figures/fig1.png?v=20260520b" alt="Streaming3D teaser: streaming 3D generation with constant memory">
       <figcaption>
         <span class="figcaption-strong">Teaser.</span>
         Streaming3D extends a frozen view-conditioned 3D generator (e.g., SAM&nbsp;3D) to long monocular streams.
@@ -249,7 +248,7 @@ footer {
     </div>
 
     <figure>
-      <img src="figures/fig3.png" alt="Adaptive Evidential Memory">
+      <img src="figures/fig3.png?v=20260520b" alt="Adaptive Evidential Memory">
       <figcaption>
         <span class="figcaption-strong">Adaptive Evidential Memory.</span>
         Given streaming input chunks, our memory is updated automatically by
@@ -370,9 +369,9 @@ footer {
     </p>
 
     <figure>
-      <img src="figures/fig4_2.png" alt="Qualitative results on NAVI">
+      <img src="figures/fig4_2.png?v=20260520" alt="Qualitative results on GSO and NAVI">
       <figcaption>
-        <span class="figcaption-strong">Qualitative results on NAVI.</span>
+        <span class="figcaption-strong">Qualitative results on GSO and NAVI.</span>
         Streaming3D produces more consistent and geometrically faithful 3D
         generations than single-view and multi-view diffusion baselines.
       </figcaption>
@@ -424,7 +423,7 @@ footer {
     </div>
 
     <figure>
-      <img src="figures/fig5.png" alt="Qualitative results of ablation studies">
+      <img src="figures/fig5.png?v=20260520b" alt="Qualitative results of ablation studies">
       <figcaption>
         <span class="figcaption-strong">Qualitative results of ablation studies.</span>
         FlowEdit denotes SAM3D with FlowEdit; KV-Cache denotes SAM3D with
@@ -473,28 +472,6 @@ footer {
       </tbody>
     </table>
     </div>
-
-    <figure>
-      <img src="figures/fig4.png" alt="Additional qualitative results">
-      <figcaption>
-        <span class="figcaption-strong">Additional qualitative comparisons.</span>
-        Streaming3D yields more temporally consistent geometry and texture
-        across long monocular streams, while baselines either oversmooth
-        unobserved regions or accumulate cross-chunk drift.
-      </figcaption>
-    </figure>
-  </div>
-</section>
-
-<section id="bibtex">
-  <div class="container">
-    <h2>BibTeX</h2>
-<pre><code>@misc{anonymous2026streaming3d,
-  title  = {{Streaming3D}: Sequential 3D Generation via Evidential Memory},
-  author = {Anonymous Authors},
-  year   = {2026},
-  note   = {Anonymous submission, under review}
-}</code></pre>
   </div>
 </section>
 
