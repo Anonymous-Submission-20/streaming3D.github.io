@@ -74,53 +74,129 @@
             <h2>Downstream robotic manipulation</h2>
           </div>
           <p>
-            Real-world execution contrasts the VGGT + SAM baseline with
-            Streaming3D on the same grasping tasks.
+            Each execution record pairs eye-in-hand input, reconstructed 3D
+            geometry, and fixed third-person verification.
           </p>
         </div>
         <div class="application-grid">
-          <article class="application-panel">
-            <div class="application-heading">
+          <article class="application-row">
+            <header class="application-heading">
+              <div class="application-summary">
+                <p class="application-method">VGGT + SAM</p>
+                <p class="application-outcome application-outcome-failure">Unsuccessful execution</p>
+              </div>
               <h3>Banana</h3>
-              <p>VGGT + SAM</p>
+            </header>
+            <div class="application-media-grid">
+              <div class="application-panel">
+                <p class="application-panel-label">First-person video</p>
+                <video class="application-video" data-application-video="banana-vggt-sam-failure-first-person" controls muted autoplay loop playsinline preload="metadata">
+                  <source src="./assets/media/application/banana-vggt-sam-failure-first-person.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="application-panel">
+                <p class="application-panel-label">3D geometry · VGGT point cloud</p>
+                <div class="application-model-shell">
+                  <model-viewer src="./assets/media/application/models/banana-vggt-sam.glb" alt="VGGT point cloud for the banana failure case" camera-controls touch-action="pan-y" environment-image="neutral" shadow-intensity="0.7" exposure="1.05" camera-orbit="25deg 72deg auto" loading="lazy" reveal="auto"></model-viewer>
+                </div>
+              </div>
+              <div class="application-panel">
+                <p class="application-panel-label">Third-person video</p>
+                <video class="application-video" data-application-video="banana-vggt-sam-failure-third-person" controls muted autoplay loop playsinline preload="metadata">
+                  <source src="./assets/media/application/banana-vggt-sam3d-failure.mp4" type="video/mp4">
+                </video>
+              </div>
             </div>
-            <video class="application-video" data-application-video="banana-vggt-sam-failure" controls muted autoplay loop playsinline preload="metadata">
-              <source src="./assets/media/application/banana-vggt-sam3d-failure.mp4" type="video/mp4">
-            </video>
-            <p class="application-outcome application-outcome-failure">Unsuccessful execution</p>
           </article>
 
-          <article class="application-panel">
-            <div class="application-heading">
+          <article class="application-row">
+            <header class="application-heading">
+              <div class="application-summary">
+                <p class="application-method">Streaming3D</p>
+                <p class="application-outcome application-outcome-success">Successful execution</p>
+              </div>
               <h3>Banana</h3>
-              <p>Streaming3D</p>
+            </header>
+            <div class="application-media-grid">
+              <div class="application-panel">
+                <p class="application-panel-label">First-person video</p>
+                <video class="application-video" data-application-video="banana-streaming3d-success-first-person" controls muted autoplay loop playsinline preload="metadata">
+                  <source src="./assets/media/application/banana-streaming3d-success-first-person.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="application-panel">
+                <p class="application-panel-label">3D geometry · SAM3D Objects mesh</p>
+                <div class="application-model-shell">
+                  <model-viewer src="./assets/media/application/models/banana-sam3d-objects.glb" alt="SAM3D Objects mesh for the banana success case" camera-controls touch-action="pan-y" environment-image="neutral" shadow-intensity="0.7" exposure="1.05" camera-orbit="25deg 72deg auto" loading="lazy" reveal="auto"></model-viewer>
+                </div>
+              </div>
+              <div class="application-panel">
+                <p class="application-panel-label">Third-person video</p>
+                <video class="application-video" data-application-video="banana-streaming3d-success-third-person" controls muted autoplay loop playsinline preload="metadata">
+                  <source src="./assets/media/application/banana-stream3d-success.mp4" type="video/mp4">
+                </video>
+              </div>
             </div>
-            <video class="application-video" data-application-video="banana-streaming3d-success" controls muted autoplay loop playsinline preload="metadata">
-              <source src="./assets/media/application/banana-stream3d-success.mp4" type="video/mp4">
-            </video>
-            <p class="application-outcome application-outcome-success">Successful execution</p>
           </article>
 
-          <article class="application-panel">
-            <div class="application-heading">
+          <article class="application-row">
+            <header class="application-heading">
+              <div class="application-summary">
+                <p class="application-method">VGGT + SAM</p>
+                <p class="application-outcome application-outcome-failure">Unsuccessful execution</p>
+              </div>
               <h3>Red pepper</h3>
-              <p>VGGT + SAM</p>
+            </header>
+            <div class="application-media-grid">
+              <div class="application-panel">
+                <p class="application-panel-label">First-person video</p>
+                <video class="application-video" data-application-video="red-pepper-vggt-sam-failure-first-person" controls muted autoplay loop playsinline preload="metadata">
+                  <source src="./assets/media/application/red-pepper-vggt-sam-failure-first-person.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="application-panel">
+                <p class="application-panel-label">3D geometry · VGGT point cloud</p>
+                <div class="application-model-shell">
+                  <model-viewer src="./assets/media/application/models/red-pepper-vggt-sam.glb" alt="VGGT point cloud for the red pepper failure case" camera-controls touch-action="pan-y" environment-image="neutral" shadow-intensity="0.7" exposure="1.05" camera-orbit="25deg 72deg auto" loading="lazy" reveal="auto"></model-viewer>
+                </div>
+              </div>
+              <div class="application-panel">
+                <p class="application-panel-label">Third-person video</p>
+                <video class="application-video" data-application-video="red-pepper-vggt-sam-failure-third-person" controls muted autoplay loop playsinline preload="metadata">
+                  <source src="./assets/media/application/red-pepper-vggt-sam3d-failure.mp4" type="video/mp4">
+                </video>
+              </div>
             </div>
-            <video class="application-video" data-application-video="red-pepper-vggt-sam-failure" controls muted autoplay loop playsinline preload="metadata">
-              <source src="./assets/media/application/red-pepper-vggt-sam3d-failure.mp4" type="video/mp4">
-            </video>
-            <p class="application-outcome application-outcome-failure">Unsuccessful execution</p>
           </article>
 
-          <article class="application-panel">
-            <div class="application-heading">
+          <article class="application-row">
+            <header class="application-heading">
+              <div class="application-summary">
+                <p class="application-method">Streaming3D</p>
+                <p class="application-outcome application-outcome-success">Successful execution</p>
+              </div>
               <h3>Red pepper</h3>
-              <p>Streaming3D</p>
+            </header>
+            <div class="application-media-grid">
+              <div class="application-panel">
+                <p class="application-panel-label">First-person video</p>
+                <video class="application-video" data-application-video="red-pepper-streaming3d-success-first-person" controls muted autoplay loop playsinline preload="metadata">
+                  <source src="./assets/media/application/red-pepper-streaming3d-success-first-person.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="application-panel">
+                <p class="application-panel-label">3D geometry · SAM3D Objects mesh</p>
+                <div class="application-model-shell">
+                  <model-viewer src="./assets/media/application/models/red-pepper-sam3d-objects.glb" alt="SAM3D Objects mesh for the red pepper success case" camera-controls touch-action="pan-y" environment-image="neutral" shadow-intensity="0.7" exposure="1.05" camera-orbit="25deg 72deg auto" loading="lazy" reveal="auto"></model-viewer>
+                </div>
+              </div>
+              <div class="application-panel">
+                <p class="application-panel-label">Third-person video</p>
+                <video class="application-video" data-application-video="red-pepper-streaming3d-success-third-person" controls muted autoplay loop playsinline preload="metadata">
+                  <source src="./assets/media/application/red-pepper-stream3d-success.mp4" type="video/mp4">
+                </video>
+              </div>
             </div>
-            <video class="application-video" data-application-video="red-pepper-streaming3d-success" controls muted autoplay loop playsinline preload="metadata">
-              <source src="./assets/media/application/red-pepper-stream3d-success.mp4" type="video/mp4">
-            </video>
-            <p class="application-outcome application-outcome-success">Successful execution</p>
           </article>
         </div>
       </div>
