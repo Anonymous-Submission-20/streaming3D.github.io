@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Streaming3D: More Visualizations</title>
   <meta name="description" content="Additional anonymous interactive 3D results for Streaming3D.">
-  <link rel="stylesheet" href="./assets/css/gallery.css?v=20260726-05">
+  <link rel="stylesheet" href="./assets/css/gallery.css?v=20260728-01">
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js"></script>
   <script type="module" src="./assets/js/gallery.js?v=20260726-07"></script>
 </head>
@@ -24,6 +24,7 @@
       <nav class="section-links" aria-label="Visualization sections">
         <a href="#object-results">Object results</a>
         <a href="#stream-results">Streaming comparisons</a>
+        <a href="#applications">Applications</a>
       </nav>
     </div>
   </header>
@@ -61,6 +62,66 @@
         </div>
         <div class="result-list" id="stream-result-list" aria-live="polite">
           <p class="load-message">Loading streaming comparisons...</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery-section" id="applications">
+      <div class="container wide">
+        <div class="section-heading">
+          <div>
+            <p class="section-index">03</p>
+            <h2>Downstream robotic manipulation</h2>
+          </div>
+          <p>
+            Real-world execution contrasts the VGGT + SAM baseline with
+            Streaming3D on the same grasping tasks.
+          </p>
+        </div>
+        <div class="application-grid">
+          <article class="application-panel">
+            <div class="application-heading">
+              <h3>Banana</h3>
+              <p>VGGT + SAM</p>
+            </div>
+            <video class="application-video" data-application-video="banana-vggt-sam-failure" controls muted autoplay loop playsinline preload="metadata">
+              <source src="./assets/media/application/banana-vggt-sam3d-failure.mp4" type="video/mp4">
+            </video>
+            <p class="application-outcome application-outcome-failure">Unsuccessful execution</p>
+          </article>
+
+          <article class="application-panel">
+            <div class="application-heading">
+              <h3>Banana</h3>
+              <p>Streaming3D</p>
+            </div>
+            <video class="application-video" data-application-video="banana-streaming3d-success" controls muted autoplay loop playsinline preload="metadata">
+              <source src="./assets/media/application/banana-stream3d-success.mp4" type="video/mp4">
+            </video>
+            <p class="application-outcome application-outcome-success">Successful execution</p>
+          </article>
+
+          <article class="application-panel">
+            <div class="application-heading">
+              <h3>Red pepper</h3>
+              <p>VGGT + SAM</p>
+            </div>
+            <video class="application-video" data-application-video="red-pepper-vggt-sam-failure" controls muted autoplay loop playsinline preload="metadata">
+              <source src="./assets/media/application/red-pepper-vggt-sam3d-failure.mp4" type="video/mp4">
+            </video>
+            <p class="application-outcome application-outcome-failure">Unsuccessful execution</p>
+          </article>
+
+          <article class="application-panel">
+            <div class="application-heading">
+              <h3>Red pepper</h3>
+              <p>Streaming3D</p>
+            </div>
+            <video class="application-video" data-application-video="red-pepper-streaming3d-success" controls muted autoplay loop playsinline preload="metadata">
+              <source src="./assets/media/application/red-pepper-stream3d-success.mp4" type="video/mp4">
+            </video>
+            <p class="application-outcome application-outcome-success">Successful execution</p>
+          </article>
         </div>
       </div>
     </section>
